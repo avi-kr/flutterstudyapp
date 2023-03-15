@@ -4,6 +4,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_study_app/model/question_paper_model.dart';
 import 'package:get/get.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 class DataUploaderController extends GetxController {
   @override
@@ -13,6 +14,8 @@ class DataUploaderController extends GetxController {
   }
 
   Future<void> uploadData() async {
+    final firestore = FirebaseFirestore.instance;
+
     final manifestContent = await DefaultAssetBundle.of(Get.context!)
         .loadString("AssetManifest.json");
     final Map<String, dynamic> manifestMap = json.decode(manifestContent);
