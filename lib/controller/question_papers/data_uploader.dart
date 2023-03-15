@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_study_app/firebase_ref/references.dart';
 import 'package:flutter_study_app/model/question_paper_model.dart';
 import 'package:get/get.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -14,7 +15,7 @@ class DataUploaderController extends GetxController {
   }
 
   Future<void> uploadData() async {
-    final firestore = FirebaseFirestore.instance;
+    // final firestore = FirebaseFirestore.instance;
 
     final manifestContent = await DefaultAssetBundle.of(Get.context!)
         .loadString("AssetManifest.json");
@@ -31,5 +32,22 @@ class DataUploaderController extends GetxController {
           .add(QuestionPaperModel.fromJson(json.decode(stringPaperContent)));
     }
     print('Item number ${questionPaper[0].id}');
+    var batch = fireStore.batch();
+
+    for (var paper in questionPaper) {
+      batch.set(
+        questionPaperRF.doc(paper.id),
+        {
+          "title": paper.title,
+          "image_url": paper.imageUrl,
+          "Description": paper.description,
+          "time_seconds": paper.timeSeconds,
+          "question_count":
+              paper.questions == null ? 0 : paper.questions!.length
+        },
+      );
+    }
+
+    await batch.commit();
   }
 }
