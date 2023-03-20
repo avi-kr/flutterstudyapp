@@ -5,7 +5,7 @@ import 'package:flutter_study_app/configs/themes/sub_theme_data_mixin.dart';
 
 const Color primaryDarkColorDark = Color(0xFF2e3c62);
 const Color primaryColorDark = Color(0xFF99ACE1);
-const Color mainTextColor = Color.fromARGB(255, 40, 40, 40);
+const Color mainTextColorLight = Color.fromARGB(255, 40, 40, 40);
 
 class LightTheme with SubThemeData {
   buildLightTheme() {
@@ -13,6 +13,6 @@ class LightTheme with SubThemeData {
     return systemLightTheme.copyWith(
         iconTheme: getIconTheme(),
         textTheme: getTextTheme()
-            .apply(bodyColor: mainTextColor, displayColor: mainTextColor));
+            .apply(bodyColor: mainTextColorLight, displayColor: mainTextColorLight));
   }
 }
