@@ -22,17 +22,23 @@ class IntroductionScreen extends StatelessWidget {
                 Icons.star,
                 size: 65,
               ),
-              SizedBox(
+              const SizedBox(
                 height: 40,
               ),
               const Text(
-                  'This is a study app. You can use it as you want. If you understand how it works you will be able to scale it. With this you will master firebase back end and flutter front-end'),
-              SizedBox(
+                'This is a study app. You can use it as you want. If you understand how it works you will be able to scale it. With this you will master firebase back end and flutter front-end',
+                style: TextStyle(
+                    fontSize: 18,
+                    color: onSurfaceTextColor,
+                    fontWeight: FontWeight.bold),
+                textAlign: TextAlign.center,
+              ),
+              const SizedBox(
                 height: 40,
               ),
               AppCircleButton(
                 onTap: () => null,
-                child: Icon(
+                child: const Icon(
                   Icons.arrow_forward,
                   size: 35,
                 ),
