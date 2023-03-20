@@ -54,6 +54,13 @@ class DataUploaderController extends GetxController {
           "question": questions.question,
           "correct_answer": questions.correctAnswer
         });
+
+        for (var answer in questions.answers) {
+          batch.set(questionPath.collection("answers").doc(answer.identifier), {
+            "identifier": answer.identifier,
+            "Answer": answer.answer,
+          });
+        }
       }
     }
 
