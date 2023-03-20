@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_study_app/bindings/initial_bindings.dart';
 import 'package:flutter_study_app/routes/app_routes.dart';
 import 'package:get/get.dart';
 
@@ -9,6 +10,8 @@ import 'package:get/get.dart';
 // }
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  InitialBindings().dependencies();
   runApp(MyApp());
 }
 
