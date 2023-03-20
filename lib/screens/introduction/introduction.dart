@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_study_app/configs/themes/app_colors.dart';
 import 'package:flutter_study_app/widgets/app_circle_button.dart';
 import 'package:get/get.dart';
 
@@ -11,6 +12,7 @@ class IntroductionScreen extends StatelessWidget {
     return Scaffold(
       body: Container(
         alignment: Alignment.center,
+        decoration: BoxDecoration(gradient: mainGradient(context)),
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: Get.width * 0.2),
           child: Column(
