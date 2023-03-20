@@ -46,6 +46,15 @@ class DataUploaderController extends GetxController {
               paper.questions == null ? 0 : paper.questions!.length
         },
       );
+
+      for (var questions in paper.questions!) {
+        final questionPath =
+            questionRF(paperId: paper.id, questionId: questions.id);
+        batch.set(questionPath, {
+          "question": questions.question,
+          "correct_answer": questions.correctAnswer
+        });
+      }
     }
 
     await batch.commit();
