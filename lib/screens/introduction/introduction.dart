@@ -21,7 +21,6 @@ class IntroductionScreen extends StatelessWidget {
               const Icon(
                 Icons.star,
                 size: 65,
-                color: Colors.amber,
               ),
               SizedBox(
                 height: 40,
