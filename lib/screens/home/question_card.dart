@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter_study_app/app_icons.dart';
 import 'package:flutter_study_app/configs/themes/costom_text_styles.dart';
 import 'package:flutter_study_app/configs/themes/ui_parameters.dart';
 import 'package:flutter_study_app/model/question_paper_model.dart';
@@ -17,12 +18,12 @@ class QuestionCard extends StatelessWidget {
     const double _padding = 10.0;
     return Container(
       decoration: BoxDecoration(
-        borderRadius: UIParameters.cardBorderRadius,
-        color: Theme.of(context).cardColor
-      ),
+          borderRadius: UIParameters.cardBorderRadius,
+          color: Theme.of(context).cardColor),
       child: Padding(
         padding: const EdgeInsets.all(_padding),
         child: Stack(
+          clipBehavior: Clip.none,
           children: [
             Row(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -102,7 +103,24 @@ class QuestionCard extends StatelessWidget {
                   ),
                 )
               ],
-            )
+            ),
+            Positioned(
+                bottom: -_padding,
+                right: -_padding,
+                child: GestureDetector(
+                  child: Container(
+                    padding: EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+                    decoration: BoxDecoration(
+                        color: Theme.of(context).primaryColor,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(cardBorderRadius),
+                          bottomRight: Radius.circular(cardBorderRadius),
+                        )),
+                    child: const Icon(
+                      AppIcons.trophyOutline,
+                    ),
+                  ),
+                ))
           ],
         ),
       ),
