@@ -1,8 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_study_app/controller/question_papers/question_paper_controller.dart';
+import 'package:flutter_study_app/screens/home/question_card.dart';
 import 'package:get/get.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -13,20 +13,8 @@ class HomeScreen extends StatelessWidget {
     return Scaffold(
       body: Obx(() => ListView.separated(
           itemBuilder: (BuildContext context, int index) {
-            return ClipRRect(
-              child: SizedBox(
-                height: 200,
-                width: 20,
-                child: CachedNetworkImage(
-                  imageUrl: _questionPaperController.allPapers[index].imageUrl!,
-                  placeholder: (context, url) => Container(
-                    alignment: Alignment.center,
-                    child: const CircularProgressIndicator(),
-                  ),
-                  errorWidget: (context, url, error) =>
-                      Image.asset("assets/images/app_splash_logo.png"),
-                ),
-              ),
+            return QuestionCard(
+              model: _questionPaperController.allPapers[index],
             );
           },
           separatorBuilder: (BuildContext context, int index) {
