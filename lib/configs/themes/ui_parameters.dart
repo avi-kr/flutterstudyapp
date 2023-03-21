@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 const double _mobileScreenPadding = 25.0;
 const double _cardBorderRadius = 10.0;
@@ -15,7 +16,7 @@ class UIParameters {
   static EdgeInsets get mobileScreenPadding =>
       const EdgeInsets.all(_mobileScreenPadding);
 
-  static bool isDarkMode(BuildContext context) {
-    return Theme.of(context).brightness == Brightness.dark;
+  static bool isDarkMode() {
+    return Get.isDarkMode ? true : false;
   }
 }

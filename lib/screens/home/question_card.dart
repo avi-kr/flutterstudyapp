@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter_study_app/configs/themes/ui_parameters.dart';
 import 'package:flutter_study_app/model/question_paper_model.dart';
 import 'package:get/get.dart';
 
@@ -38,12 +39,19 @@ class QuestionCard extends StatelessWidget {
                   ),
                 ),
               ),
-              const SizedBox(width: 12,),
+              const SizedBox(
+                width: 12,
+              ),
               Expanded(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    Text(model.title),
+                    Text(
+                      model.title,
+                      style: TextStyle(
+                        // color: UIParameters.isDarkMode()
+                      ),
+                    ),
                     Padding(
                       padding: const EdgeInsets.only(top: 10, bottom: 15),
                       child: Text(model.description),

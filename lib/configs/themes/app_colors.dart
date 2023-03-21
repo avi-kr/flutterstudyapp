@@ -18,5 +18,5 @@ const mainGradientDark = LinearGradient(
   colors: [primaryDarkColorDark, primaryColorDark],
 );
 
-LinearGradient mainGradient(BuildContext context) =>
-    UIParameters.isDarkMode(context) ? mainGradientDark : mainGradientLight;
+LinearGradient mainGradient() =>
+    UIParameters.isDarkMode() ? mainGradientDark : mainGradientLight;
