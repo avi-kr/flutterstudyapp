@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:flutter_study_app/configs/themes/costom_text_styles.dart';
 import 'package:flutter_study_app/configs/themes/ui_parameters.dart';
 import 'package:flutter_study_app/model/question_paper_model.dart';
 import 'package:get/get.dart';
@@ -48,9 +49,7 @@ class QuestionCard extends StatelessWidget {
                   children: [
                     Text(
                       model.title,
-                      style: TextStyle(
-                        // color: UIParameters.isDarkMode()
-                      ),
+                      style: cartTitle(context),
                     ),
                     Padding(
                       padding: const EdgeInsets.only(top: 10, bottom: 15),
