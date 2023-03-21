@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_study_app/configs/themes/ui_parameters.dart';
 import 'package:flutter_study_app/controller/question_papers/question_paper_controller.dart';
 import 'package:flutter_study_app/screens/home/question_card.dart';
 import 'package:get/get.dart';
@@ -12,6 +13,7 @@ class HomeScreen extends StatelessWidget {
     QuestionPaperController _questionPaperController = Get.find();
     return Scaffold(
       body: Obx(() => ListView.separated(
+          padding: UIParameters.mobileScreenPadding,
           itemBuilder: (BuildContext context, int index) {
             return QuestionCard(
               model: _questionPaperController.allPapers[index],
