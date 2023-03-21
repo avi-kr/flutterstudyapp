@@ -4,6 +4,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter_study_app/configs/themes/costom_text_styles.dart';
 import 'package:flutter_study_app/configs/themes/ui_parameters.dart';
 import 'package:flutter_study_app/model/question_paper_model.dart';
+import 'package:flutter_study_app/widgets/app_icon_text.dart';
 import 'package:get/get.dart';
 
 class QuestionCard extends StatelessWidget {
@@ -55,6 +56,27 @@ class QuestionCard extends StatelessWidget {
                       padding: const EdgeInsets.only(top: 10, bottom: 15),
                       child: Text(model.description),
                     ),
+                    Row(
+                      children: [
+                        AppIconText(
+                            icon: Icon(
+                              Icons.help_outline_sharp,
+                              color: Get.isDarkMode
+                                  ? Colors.white
+                                  : Theme.of(context)
+                                      .primaryColor,
+                            ),
+                            text: Text(
+                              '${model.questionCount} questions',
+                              style: detailText.copyWith(
+                                color: Get.isDarkMode
+                                    ? Colors.white
+                                    : Theme.of(context)
+                                        .primaryColor,
+                              ),
+                            ))
+                      ],
+                    )
                   ],
                 ),
               )

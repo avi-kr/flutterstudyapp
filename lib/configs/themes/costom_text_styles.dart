@@ -9,3 +9,5 @@ TextStyle cartTitle(context) => TextStyle(
         : Theme.of(context).primaryColor,
     fontSize: 18,
     fontWeight: FontWeight.bold);
+
+const detailText = TextStyle(fontSize: 12);
