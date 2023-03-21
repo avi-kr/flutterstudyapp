@@ -25,7 +25,7 @@ class QuestionCard extends StatelessWidget {
               ClipRRect(
                 borderRadius: BorderRadius.circular(10),
                 child: ColoredBox(
-                  color: Theme.of(context).primaryColor.withOpacity(0.2),
+                  color: Theme.of(context).primaryColor.withOpacity(0.1),
                   child: SizedBox(
                     height: Get.width * 0.15,
                     width: Get.width * 0.15,
@@ -63,16 +63,32 @@ class QuestionCard extends StatelessWidget {
                               Icons.help_outline_sharp,
                               color: Get.isDarkMode
                                   ? Colors.white
-                                  : Theme.of(context)
-                                      .primaryColor,
+                                  : Theme.of(context).primaryColor,
                             ),
                             text: Text(
                               '${model.questionCount} questions',
                               style: detailText.copyWith(
                                 color: Get.isDarkMode
                                     ? Colors.white
-                                    : Theme.of(context)
-                                        .primaryColor,
+                                    : Theme.of(context).primaryColor,
+                              ),
+                            )),
+                        const SizedBox(
+                          width: 15,
+                        ),
+                        AppIconText(
+                            icon: Icon(
+                              Icons.timer,
+                              color: Get.isDarkMode
+                                  ? Colors.white
+                                  : Theme.of(context).primaryColor,
+                            ),
+                            text: Text(
+                              model.timeInMinits(),
+                              style: detailText.copyWith(
+                                color: Get.isDarkMode
+                                    ? Colors.white
+                                    : Theme.of(context).primaryColor,
                               ),
                             ))
                       ],
