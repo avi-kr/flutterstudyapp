@@ -1,5 +1,8 @@
+import 'package:flutter_study_app/firebase_ref/references.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+import 'package:flutter_study_app/AppLogger.java';
 
 class AuthController extends GetxController {
   @override
@@ -20,6 +23,32 @@ class AuthController extends GetxController {
       _user.value = user;
     });
     navigateToIntroduction();
+  }
+
+  signInWithGoogle() async {
+    final GoogleSignIn _googleSignIn = GoogleSignIn();
+    try {
+      GoogleSignInAccount? account = await _googleSignIn.signIn();
+      if (account != null) {
+        final _authAccount = await account.authentication;
+        final _credential = GoogleAuthProvider.credential(
+            idToken: _authAccount.idToken,
+            accessToken: _authAccount.accessToken);
+
+        await _auth.signInWithCredential(_credential);
+        await saveUser(account);
+      }
+    } on Exception catch (error) {
+      AppLogger.e(error);
+    }
+  }
+
+  saveUser(GoogleSignInAccount account) {
+    userRF.doc(account.email).set({
+      "email": account.email,
+      "name": account.displayName,
+      "profile_photo": account.photoUrl
+    });
   }
 
   void navigateToIntroduction() {
