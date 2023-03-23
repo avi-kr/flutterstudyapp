@@ -6,6 +6,7 @@ import 'package:flutter_study_app/configs/themes/costom_text_styles.dart';
 import 'package:flutter_study_app/configs/themes/ui_parameters.dart';
 import 'package:flutter_study_app/controller/question_papers/question_paper_controller.dart';
 import 'package:flutter_study_app/controller/zoom_drawer_controller.dart';
+import 'package:flutter_study_app/screens/home/menu_screen.dart';
 import 'package:flutter_study_app/screens/home/question_card.dart';
 import 'package:flutter_study_app/widgets/app_circle_button.dart';
 import 'package:flutter_study_app/widgets/content_area.dart';
@@ -29,7 +30,7 @@ class HomeScreen extends GetView<MyZoomDrawerController> {
             backgroundColor: Colors.white.withOpacity(0.5),
             slideWidth: MediaQuery.of(context).size.width * 0.6,
             controller: _.zoomDrawerController,
-            menuScreen: Text("Hi There"),
+            menuScreen: const MenuScreen(),
             mainScreen: Container(
               decoration: BoxDecoration(gradient: mainGradient()),
               child: SafeArea(
