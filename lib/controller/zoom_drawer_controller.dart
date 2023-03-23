@@ -8,4 +8,23 @@ class MyZoomDrawerController extends GetxController {
     zoomDrawerController.toggle?.call();
     update();
   }
+
+  void signOut() {}
+
+  void signIn() {}
+
+  void website() {}
+
+  void email() {
+    final Uri emailLaunchUri = Uri(
+      scheme: 'mailto',
+      path: 'avi.kr16@gmail.com'
+    );
+    // _launch(emailLaunchUri);
+  }
+
+  _launch(String url) {
+
+  }
+
 }
