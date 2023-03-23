@@ -1,8 +1,8 @@
+import 'package:flutter_study_app/AppLogger.dart';
 import 'package:flutter_study_app/firebase_ref/references.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
-import 'package:flutter_study_app/AppLogger.java';
 
 class AuthController extends GetxController {
   @override
