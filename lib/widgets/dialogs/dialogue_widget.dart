@@ -13,6 +13,8 @@ class Dialogs {
   static Widget questionStartDialog({required VoidCallback onTap}) {
     return AlertDialog(
       content: Column(
+        mainAxisSize: MainAxisSize.min,
+        crossAxisAlignment: CrossAxisAlignment.start,
         children: const [
           Text(
             "Hi",
