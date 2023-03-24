@@ -22,8 +22,11 @@ class QuestionCard extends GetView<QuestionPaperController> {
           borderRadius: UIParameters.cardBorderRadius,
           color: Theme.of(context).cardColor),
       child: InkWell(
-        onTap: (){
-          controller.navigateToQuestions(paper: model);
+        onTap: () {
+          controller.navigateToQuestions(
+            paper: model,
+            tryAgain: false,
+          );
         },
         child: Padding(
           padding: const EdgeInsets.all(_padding),
@@ -114,7 +117,8 @@ class QuestionCard extends GetView<QuestionPaperController> {
                   right: -_padding,
                   child: GestureDetector(
                     child: Container(
-                      padding: EdgeInsets.symmetric(vertical: 12, horizontal: 20),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 12, horizontal: 20),
                       decoration: BoxDecoration(
                           color: Theme.of(context).primaryColor,
                           borderRadius: BorderRadius.only(

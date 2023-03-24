@@ -1,6 +1,7 @@
 import 'package:flutter_study_app/controller/auth_controller.dart';
 import 'package:flutter_study_app/firebase_ref/references.dart';
 import 'package:flutter_study_app/model/question_paper_model.dart';
+import 'package:flutter_study_app/screens/paper/question_screen.dart';
 import 'package:flutter_study_app/services/firebase_storage_service.dart';
 import 'package:get/get.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -51,7 +52,10 @@ class QuestionPaperController extends GetxController {
         Get.back();
         // Get.offNamed('page');
       } else {
-        // Get.toNamed();
+        Get.toNamed(
+          QuestionScreen.routeName,
+          arguments: paper,
+        );
       }
     } else {
       print('The title is ${paper.title}');

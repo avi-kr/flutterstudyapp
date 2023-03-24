@@ -3,6 +3,7 @@ import 'package:flutter_study_app/controller/zoom_drawer_controller.dart';
 import 'package:flutter_study_app/screens/home/home_screen.dart';
 import 'package:flutter_study_app/screens/introduction/introduction.dart';
 import 'package:flutter_study_app/screens/login/login_screen.dart';
+import 'package:flutter_study_app/screens/paper/question_screen.dart';
 import 'package:flutter_study_app/screens/splash/splash_screen.dart';
 import 'package:get/get.dart';
 
@@ -18,6 +19,8 @@ class AppRoutes {
             Get.put(MyZoomDrawerController());
           }),
         ),
-        GetPage(name: LoginScreen.routeName, page: () => const LoginScreen())
+        GetPage(name: LoginScreen.routeName, page: () => const LoginScreen()),
+        GetPage(
+            name: QuestionScreen.routeName, page: () => const QuestionScreen())
       ];
 }
