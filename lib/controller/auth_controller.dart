@@ -1,5 +1,6 @@
 import 'package:flutter_study_app/AppLogger.dart';
 import 'package:flutter_study_app/firebase_ref/references.dart';
+import 'package:flutter_study_app/screens/home/home_screen.dart';
 import 'package:flutter_study_app/screens/login/login_screen.dart';
 import 'package:flutter_study_app/widgets/dialogs/dialogue_widget.dart';
 import 'package:get/get.dart';
@@ -39,6 +40,7 @@ class AuthController extends GetxController {
 
         await _auth.signInWithCredential(_credential);
         await saveUser(account);
+        navigateToHomePage();
       }
     } on Exception catch (error) {
       AppLogger.e(error);
@@ -62,6 +64,7 @@ class AuthController extends GetxController {
     AppLogger.d("sign out");
     try {
       _auth.signOut();
+      navigateToHomePage();
     } on FirebaseAuthException catch (e) {
       AppLogger.e(e);
     }
@@ -87,5 +90,9 @@ class AuthController extends GetxController {
 
   void navigateToLoginPage() {
     Get.toNamed(LoginScreen.routeName);
+  }
+
+  void navigateToHomePage() {
+    Get.offAllNamed(HomeScreen.routeName);
   }
 }

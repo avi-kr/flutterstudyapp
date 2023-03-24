@@ -14,6 +14,8 @@ import 'package:get/get.dart';
 import 'package:flutter_zoom_drawer/flutter_zoom_drawer.dart';
 
 class HomeScreen extends GetView<MyZoomDrawerController> {
+  static const String routeName = "/home";
+
   const HomeScreen({Key? key}) : super(key: key);
 
   @override
