@@ -1,6 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_study_app/configs/themes/app_colors.dart';
+import 'package:flutter_study_app/widgets/common/main_button.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class LoginScreen extends StatelessWidget {
   const LoginScreen({Key? key}) : super(key: key);
@@ -33,11 +35,23 @@ class LoginScreen extends StatelessWidget {
                 textAlign: TextAlign.center,
               ),
             ),
-            GestureDetector(
-              onTap: (){},
+            MainButton(
+              onTap: () {},
               child: Stack(
                 children: [
-                  // Positioned(child: child)
+                  Positioned(
+                      child: SvgPicture.asset("assets/icons/google.svg"),
+                  top: 0,
+                  left: 0,
+                  bottom: 0,),
+                  Center(
+                    child: Text(
+                      "Sign in with Google",
+                      style: TextStyle(
+                          color: Theme.of(context).primaryColor,
+                          fontWeight: FontWeight.bold),
+                    ),
+                  )
                 ],
               ),
             )
