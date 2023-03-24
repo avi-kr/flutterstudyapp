@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_study_app/configs/themes/app_colors.dart';
+import 'package:flutter_study_app/controller/auth_controller.dart';
 import 'package:flutter_study_app/widgets/common/main_button.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends GetView<AuthController> {
   const LoginScreen({Key? key}) : super(key: key);
 
   static const String routeName = "/login";
@@ -36,14 +38,17 @@ class LoginScreen extends StatelessWidget {
               ),
             ),
             MainButton(
-              onTap: () {},
+              onTap: () {
+                controller.signInWithGoogle();
+              },
               child: Stack(
                 children: [
                   Positioned(
-                      child: SvgPicture.asset("assets/icons/google.svg"),
-                  top: 0,
-                  left: 0,
-                  bottom: 0,),
+                    child: SvgPicture.asset("assets/icons/google.svg"),
+                    top: 0,
+                    left: 0,
+                    bottom: 0,
+                  ),
                   Center(
                     child: Text(
                       "Sign in with Google",
