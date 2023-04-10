@@ -22,9 +22,10 @@ class AppRoutes {
         ),
         GetPage(name: LoginScreen.routeName, page: () => const LoginScreen()),
         GetPage(
-            name: QuestionScreen.routeName, page: () => const QuestionScreen(),
-        binding: BindingsBuilder(() {
-          Get.put(QuestionsController());
-        }))
+            name: QuestionScreen.routeName,
+            page: () => const QuestionScreen(),
+            binding: BindingsBuilder(() {
+              Get.put(QuestionsController());
+            }))
       ];
 }
