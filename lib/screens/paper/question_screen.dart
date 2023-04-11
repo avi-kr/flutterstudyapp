@@ -6,6 +6,7 @@ import 'package:flutter_study_app/firebase_ref/loading_status.dart';
 import 'package:flutter_study_app/widgets/common/background_decoration.dart';
 import 'package:flutter_study_app/widgets/common/question_placeholder.dart';
 import 'package:flutter_study_app/widgets/content_area.dart';
+import 'package:flutter_study_app/widgets/questions/answer_card.dart';
 import 'package:get/get.dart';
 
 class QuestionScreen extends GetView<QuestionsController> {
@@ -28,10 +29,44 @@ class QuestionScreen extends GetView<QuestionsController> {
                 Expanded(
                   child: ContentArea(
                     child: SingleChildScrollView(
+                      padding: const EdgeInsets.only(top: 25),
                       child: Column(
                         children: [
-                          Text(controller.currentQuestion.value!.question,
-                          style: questionText,),
+                          Text(
+                            controller.currentQuestion.value!.question,
+                            style: questionText,
+                          ),
+                          GetBuilder<QuestionsController>(
+                              id: 'answers_list',
+                              builder: (context) {
+                                return ListView.separated(
+                                    shrinkWrap: true,
+                                    padding: const EdgeInsets.only(top: 25),
+                                    physics:
+                                        const NeverScrollableScrollPhysics(),
+                                    itemBuilder:
+                                        (BuildContext context, int index) {
+                                      final answer = controller.currentQuestion
+                                          .value!.answers[index];
+                                      return AnswerCard(
+                                          answer:
+                                              '${answer.identifier}. ${answer.answer!}',
+                                          onTap: () {
+                                            controller.selectedAnswer(
+                                                answer.identifier!);
+                                          },
+                                          isSelected: answer.identifier ==
+                                              controller.currentQuestion.value!
+                                                  .selectedAnswer);
+                                    },
+                                    separatorBuilder:
+                                        (BuildContext context, int index) =>
+                                            const SizedBox(
+                                              height: 10,
+                                            ),
+                                    itemCount: controller
+                                        .currentQuestion.value!.answers.length);
+                              })
                         ],
                       ),
                     ),

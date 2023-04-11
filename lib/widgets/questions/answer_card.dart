@@ -29,6 +29,7 @@ class AnswerCard extends StatelessWidget {
             color: isSelected ? answerSelectedColor() : answerBorderColor(),
           ),
         ),
+        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
         child: Text(
           answer,
           style: TextStyle(
